@@ -11,23 +11,23 @@ class CategoryModelTest(TestCase):
   
     def setUp(self):
         self.c=Category(
-                
-                name="เสื้อยืด",
-                slug="เสื้อ-ยืด",
+                id=1,
+                name="T-shirt",
+                slug="t-shirt",
                 image="category/image.png",
         )
         self.c.save()
 
     def test_model_category_cancreate(self):
         self.assertEqual(self.c.id,1)
-        self.assertEqual(self.c.name,"เสื้อยืด")
-        self.assertEqual(self.c.slug,"เสื้อ-ยืด")
+        self.assertEqual(self.c.name,"T-shirt")
+        self.assertEqual(self.c.slug,"t-shirt")
         self.assertEqual(self.c.image,"category/image.png")
 
     def test_model_category_canedit(self):
-        self.c.name="เสื้อแขนยาว"
+        self.c.name="vest"
         self.c.save()
-        self.c = Category.objects.get(pk=self.c.id)
+        self.c = Category.objects.get(id=self.c.id)
         self.assertEqual(self.c.name,"เสื้อแขนยาว")
 
 
@@ -45,12 +45,11 @@ class ProductModelTest(TestCase):
     def setUp(self):
         
         self.p = Product(
-                
                 id=1,
                 name="เสื้อยืดลายการ์ตูน",
                 slug="เสื้อยืด-ลายการ์ตูน",
                 description="เสื้อยืดใส่สบาย",
-              
+                category = Category.objects.get(pk=1).pk,
                 price=100,
                 image="product/image.png",
                 available=True,
@@ -66,12 +65,12 @@ class ProductModelTest(TestCase):
         self.assertEqual(self.p.name,"เสื้อยืดลายการ์ตูน")
         self.assertEqual(self.p.slug,"เสื้อยืด-ลายการ์ตูน")
         self.assertEqual(self.p.description,"เสื้อยืดใส่สบาย")
-  
+        self.assertEqual(self.p.category,"t-shirt")
         self.assertEqual(self.p.price,100)
         self.assertEqual(self.p.image,"product/image.png")
         self.assertEqual(self.p.available,True)
 
-'''
+
      
     def test_model_product_canedit(self):
         self.p.name="เสื้อแขนสั้นสไตล์วินเทจ"
@@ -90,7 +89,7 @@ class ProductModelTest(TestCase):
 
         with self.assertRaisesMessage(ValidationError,"This field cannot be null."):
             self.p.full_clean()
-   '''       
+      
  ##  def test_model_product_not_null(self):
 
 
