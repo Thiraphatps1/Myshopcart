@@ -109,4 +109,4 @@ class ViewTest(TestCase):
         response = self.client.get("/0000/00/00/0-invalid/")
         self.assertEqual(response.status_code, 404)
 
-#   def test_tab_menu(self):
+

@@ -22,3 +22,74 @@ body{
     padding-top: 20px;
     font-size: 14px;
 }
+.my_row_class .mx-auto p {
+    color: #000;
+    font-size: 12px;
+}
+.my_row_class .mx-auto p a {
+    color: #000;
+    font-size: 12px;
+    text-decoration: none;
+}
+.my_image{
+    width: 100%;
+    height:auto;
+
+}
+.my_title{
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+}
+.my_image_padding{
+    padding-top: 5px;
+    width: 100%;
+    height: auto;
+}
+.my_bottom_margin{
+    margin-bottom: 10px;
+}
+.card-body h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+}
+.my_pro_row_class .mx-auto p {
+    color: #000;
+    font-size: 12px;
+}
+.my_pro_row_class .mx-auto p a{
+    color: #000;
+    font-size: 12px;
+    text-decoration: none;
+}
+.my_prod_title{
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+.my_prod_text{
+    padding-right: 20px;
+}
+.btn_custom{
+ 
+        display: inline-block;
+        font-weight: 400;
+        color: #212529;
+        text-align: center;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-color: transparent;
+        border: 1px solid;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: .25rem;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    
+}
