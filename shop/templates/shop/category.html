@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block metadescription %}
+    {% if category %}
+        {{ category.description|truncatewords:155 }}
+    { else %}
+        welcome to the shop
+    {% endif %}
+{% endblock %}
+{% block title %}
+    {% if category %}
+        {{ category.name }} - Perfect Cusion Store
+    {% else %}
+        See our Cusion collection - Perfect Cusion Store
+    {% endif %}
+{% endblock %}
+{% block content %}
+
+    {% if category %}
+        <div>
+            <div>
+                <p><a href="{% url 'shop:allProdCat' %}">Our Product Collection</a> | {{category.name}}</p>
+            </div>
+        </div>
+    {% endif %}
+    <div>
+    {% if category %}
+        <img src="{{category.image.url}}" alt="{{category.name}}">
+    </div>
+    <br>
+    <div>
+        <h1>{{category.name}}</h1>
+        <p>{{category.description}}</p>
+    </div>
+    {% else %}
+        <img src="{% static 'img/logo.png' %}" alt="Our Product Collection">
+    </div>
+    <br>
+    <div>
+        <h1>Our Porudt</h1>
+        <p>asdasdsadasdsadasdasdsadsadsadsadasd</p>
+    </div>
+    {% endif %}
+    <div>
+        <div>
+            {% for product in products %}
+                <div>
+                    <div>
+                        <a href="{{product.get_url}}"><img src="{{product.image.url}}" alt="{{product.name}}"></a>
+                        <div>
+                            <h4>{{product.name}}</h4>
+                            <p>฿{{product.price}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

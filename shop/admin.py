@@ -2,7 +2,8 @@ from django.contrib import admin
 from .models import Product ,Category
 # Register your models here.
 class CategoryAdmin(admin.ModelAdmin):
-    list_display =['id','name','slug']
+    list_display =['id','name','slug','image']
+    list_editable=['name','image']
     prepopulated_fields={'slug':('name',)}
 admin.site.register(Category,CategoryAdmin)
 
