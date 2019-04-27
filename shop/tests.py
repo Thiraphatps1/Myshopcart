@@ -28,10 +28,11 @@ class CategoryModelTest(TestCase):
         self.c.name="vest"
         self.c.save()
         self.c = Category.objects.get(id=self.c.id)
-        self.assertEqual(self.c.name,"เสื้อแขนยาว")
+        self.assertEqual(self.c.name,"vest")
 
 
     def test_model_category_not_null(self):
+        self.c.id=None
         self.c.name=None
         self.c.slug=None
         self.c.image=None
@@ -49,43 +50,38 @@ class ProductModelTest(TestCase):
                 name="เสื้อยืดลายการ์ตูน",
                 slug="เสื้อยืด-ลายการ์ตูน",
                 description="เสื้อยืดใส่สบาย",
-                category = Category.objects.get(pk=1).pk,
                 price=100,
                 image="product/image.png",
-                available=True,
-                created=True,
-                updated=True,
-                
+                available=True,     
         )
         self.p.save()
-    
+
     def test_model_product_cancreate(self):
-    
-        self.assertEqual(self.p.id,1)
+   
         self.assertEqual(self.p.name,"เสื้อยืดลายการ์ตูน")
         self.assertEqual(self.p.slug,"เสื้อยืด-ลายการ์ตูน")
         self.assertEqual(self.p.description,"เสื้อยืดใส่สบาย")
-        self.assertEqual(self.p.category,"t-shirt")
         self.assertEqual(self.p.price,100)
         self.assertEqual(self.p.image,"product/image.png")
         self.assertEqual(self.p.available,True)
 
 
-     
+ 
     def test_model_product_canedit(self):
-        self.p.name="เสื้อแขนสั้นสไตล์วินเทจ"
+        self.p.name="T-shirt cartoon"
         self.p.save()
         self.p = Product.objects.get(id=self.p.id)
-        self.assertEqual(self.p.name,"เสื้อแขนสั้นสไตล์วินเทจ")
+        self.assertEqual(self.p.name,"T-shirt cartoon")
  
 
     def test_model_product_not_null(self):
         self.p.name=None
         self.p.slug=None
-        
         self.p.description=None
+        self.p.category=None
         self.p.price=None
         self.p.image=None
+        self.p.available=None
 
         with self.assertRaisesMessage(ValidationError,"This field cannot be null."):
             self.p.full_clean()
@@ -101,10 +97,16 @@ class ViewTest(TestCase):
         # Check that the response is 200 OK.
         self.assertEqual(response.status_code, 200)
 
+    def test_allproductpage(self):
+        # Issue a GET request.
+        response = self.client.get('/shop/')
+
+        # Check that the response is 200 OK.
+        self.assertEqual(response.status_code, 200)
+
     def test_invalid_url(self):
       
         response = self.client.get("/0000/00/00/0-invalid/")
         self.assertEqual(response.status_code, 404)
 
 #   def test_tab_menu(self):
-
