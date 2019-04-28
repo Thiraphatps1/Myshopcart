@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block metadescription %}
+    {% if category %}
+        {{ category.description|truncatewords:155 }}
+    { else %}
+        welcome to the shop
+    {% endif %}
+{% endblock %}
+{% block title %}
+    {% if category %}
+        {{ category.name }} - Perfect Cusion Store
+    {% else %}
+        See our Cusion collection - Perfect Cusion Store
+    {% endif %}
+{% endblock %}
+{% block content %}
+
+   
+{% endblock %}

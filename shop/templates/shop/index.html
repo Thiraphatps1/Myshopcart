@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block metadescription %}
+    {% if category %}
+        {{ category.description|truncatewords:155 }}
+    { else %}
+        welcome to the shop
+    {% endif %}
+{% endblock %}
+{% block title %}
+    {% if category %}
+        {{ category.name }} - Perfect Cusion Store
+    {% else %}
+        See our Cusion collection - Perfect Cusion Store
+    {% endif %}
+{% endblock %}
+{% block content %}
+
+
+    <div class="container">
+        <img class=" my_image_padding" src="{% static 'img/banner1.png' %}" alt="Our Product Collection">
+    </div>
+    </div>
+    <br>
+    <div class="container ">
+        <h1 class="text-center my_title" >PYRAMID SHOP</h1>
+        <p class="text-justify">Finding the perfect Fashion for your room can instantry add to the levels of comfort and sense of style thoughout your home. They can transform the blandest of decors instantry by adding colour, softness and an air of cosiness.</p>
+    </div>
+   
+    
+{% endblock %}

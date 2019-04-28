@@ -31,9 +31,9 @@ body{
     font-size: 12px;
     text-decoration: none;
 }
-.my_image{
+.my_image1{
     width: 100%;
-    height:auto;
+    height: 350px;
 
 }
 .my_title{
@@ -43,7 +43,7 @@ body{
 }
 .my_image_padding{
     padding-top: 5px;
-    width: 100%;
+    width: 50%;
     height: auto;
 }
 .my_bottom_margin{
@@ -92,4 +92,32 @@ body{
         border-radius: .25rem;
         transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     
+}
+.nav-custom{
+    border: 1px solid;
+    color: #212529;
+}
+.my_custom_table{
+    min-width: 400px;
+    font-size: 14px;
+}
+.my_custom_thead{
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    background-color: #f8f9fa!important;
+}
+.custom_image{
+    width: 100px;
+    height: 100px;
+}
+.custom_a{
+    text-decoration: none;
+}
+.custom_icon{
+    text-decoration: none;
+    color: #868e96 !important;
+}
+.my_custom_button{
+    margin-top: 5px;
 }

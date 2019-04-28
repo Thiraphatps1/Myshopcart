@@ -86,7 +86,6 @@ class ProductModelTest(TestCase):
         with self.assertRaisesMessage(ValidationError,"This field cannot be null."):
             self.p.full_clean()
       
- ##  def test_model_product_not_null(self):
 
 
 class ViewTest(TestCase):
