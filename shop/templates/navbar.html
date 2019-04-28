@@ -1,5 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light ">
-        <a class="navbar-brand" href="{% url 'index' %}">HOME</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light text-centere">
+    <ul class="row navbar-nav mx-auto"> 
+        <a class="navbar-brand mx-auto" href="{% url 'index' %}">HOME</a>
+</ul>
 
   
 
@@ -11,7 +13,7 @@
           <ul class="row navbar-nav mx-auto">   
             <li class="nav-item dropdown {% if 'shop' in request.path %}active{% endif %}">
               <a class="navbar-brand dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  &nbsp;&nbsp;&nbsp;shop
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shop
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{% url 'shop:allProdCat' %}">All Products</a>
